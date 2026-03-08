@@ -45,6 +45,11 @@ const faqs: FAQItem[] = [
         answer:
             "Sí, trabajamos con los principales seguros médicos del país. Le recomendamos contactarnos con anticipación para confirmar la cobertura de su plan específico y los pasos necesarios para su autorización.",
     },
+    {
+        question: "¿Aceptan seguros médicos?",
+        answer:
+            "Sí, trabajamos con los principales seguros médicos del país. Le recomendamos contactarnos con anticipación para confirmar la cobertura de su plan específico y los pasos necesarios para su autorización.",
+    },
 ];
 
 export function FAQ() {

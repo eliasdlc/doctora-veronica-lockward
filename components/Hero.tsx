@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { Phone, ShieldCheck, Award, Heart } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
@@ -14,9 +15,21 @@ import {
 import Autoplay from "embla-carousel-autoplay";
 
 const slides = [
-    { id: 1, alt: "Dra. Verónica Lockward en consultorio" },
-    { id: 2, alt: "Equipos de gastroenterología" },
-    { id: 3, alt: "Consulta médica personalizada" },
+    {
+        id: 1,
+        src: "/images/doctora/hero-conferencia.webp",
+        alt: "Dra. Verónica Lockward presentando en conferencia médica",
+    },
+    {
+        id: 2,
+        src: "/images/doctora/hero-congreso.webp",
+        alt: "Dra. Verónica Lockward en el XXXIII Congreso Dominicano de Gastroenterología",
+    },
+    {
+        id: 3,
+        src: "/images/doctora/hero-investigacion.webp",
+        alt: "Dra. Verónica Lockward presentando investigaciones en congreso médico",
+    },
 ];
 
 const stats = [
@@ -108,24 +121,17 @@ export function Hero() {
                                 className="w-full"
                             >
                                 <CarouselContent>
-                                    {slides.map((slide) => (
+                                    {slides.map((slide, idx) => (
                                         <CarouselItem key={slide.id}>
                                             <div className="relative overflow-hidden rounded-2xl border-2 border-brand-accent/30 shadow-lg aspect-4/5">
-                                                {/* Placeholder — reemplazar con <Image /> real */}
-                                                <div className="absolute inset-0 bg-linear-to-br from-brand-accent/20 via-brand-accent/5 to-brand-primary/10 flex flex-col items-center justify-center gap-4 p-8">
-                                                    <div className="w-20 h-20 rounded-full bg-brand-primary/10 flex items-center justify-center">
-                                                        <ShieldCheck
-                                                            size={36}
-                                                            className="text-brand-primary"
-                                                        />
-                                                    </div>
-                                                    <p className="text-sm text-stone-500 text-center font-medium">
-                                                        {slide.alt}
-                                                    </p>
-                                                    <span className="text-xs text-stone-400">
-                                                        Imagen {slide.id} — placeholder
-                                                    </span>
-                                                </div>
+                                                <Image
+                                                    src={slide.src}
+                                                    alt={slide.alt}
+                                                    fill
+                                                    sizes="(max-width: 768px) 100vw, 512px"
+                                                    className="object-cover"
+                                                    priority={idx === 0}
+                                                />
                                             </div>
                                         </CarouselItem>
                                     ))}

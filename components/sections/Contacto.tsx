@@ -24,7 +24,7 @@ const contactItems = [
   {
     icon: Clock,
     label: "Horario",
-    value: "Lun–Vie 8:00 – 17:00",
+    value: "Lun–Vie 8:00 AM – 5:00 PM",
   },
 ];
 

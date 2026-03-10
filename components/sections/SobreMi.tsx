@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { BookOpen, Award, GraduationCap, Star } from "lucide-react";
 
 const credentials = [
@@ -39,10 +40,14 @@ export function SobreMi() {
         <div className="grid grid-cols-1 lg:grid-cols-[0.45fr_0.55fr] gap-12 lg:gap-16 items-center">
           {/* Imagen — ~45% */}
           <div className="relative">
-            <div className="aspect-[3/4] max-w-sm mx-auto lg:mx-0 rounded-2xl overflow-hidden border border-stone-200 bg-stone-200 flex items-center justify-center">
-              <span className="text-stone-500 text-sm text-center px-4">
-                Foto personal / casual de la Doctora
-              </span>
+            <div className="aspect-[3/4] max-w-sm mx-auto lg:mx-0 rounded-2xl overflow-hidden border border-stone-200 shadow-md relative">
+              <Image
+                src="/images/doctora/sobre-mi.webp"
+                alt="Dra. Verónica Lockward en el podio de la Clínica Unión Médica del Norte"
+                fill
+                sizes="(max-width: 768px) 100vw, 384px"
+                className="object-cover object-top"
+              />
             </div>
           </div>
 
@@ -58,7 +63,7 @@ export function SobreMi() {
               Internista · Gastroenteróloga
             </p>
             <p className="text-stone-600 leading-relaxed">
-              Médica internista y gastroenteróloga con más de 20 años de
+              Médica internista y gastroenteróloga con más de 30 años de
               experiencia clínica. Egresada de la PUCMM, desarrolló sus
               especialidades en el Hospital Regional Universitario José María
               Cabral y Báez y se subespecializó como fellow en Enfermedades

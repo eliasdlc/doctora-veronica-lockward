@@ -46,15 +46,15 @@ export function Footer() {
             <ul className="space-y-3 text-sm text-stone-400">
               <li className="flex items-center gap-2">
                 <Phone className="w-4 h-4 shrink-0" />
-                +1 (809) 000-0000
+                809-226-8686 ext. 4316
               </li>
               <li className="flex items-center gap-2">
                 <Mail className="w-4 h-4 shrink-0" />
-                contacto@ejemplo.com
+                veronicalockr@hotmail.com
               </li>
-              <li className="flex items-center gap-2">
-                <MapPin className="w-4 h-4 shrink-0" />
-                Calle Ejemplo 123, Ciudad
+              <li className="flex items-start gap-2">
+                <MapPin className="w-4 h-4 shrink-0 mt-0.5" />
+                Ave. Juan Pablo Duarte No. 176, Suite 316, Santiago, RD
               </li>
             </ul>
           </div>

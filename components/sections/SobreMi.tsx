@@ -1,6 +1,33 @@
 "use client";
 
-import { BookOpen, Award } from "lucide-react";
+import { BookOpen, Award, GraduationCap, Star } from "lucide-react";
+
+const credentials = [
+  {
+    icon: GraduationCap,
+    title: "Formación Especializada",
+    description:
+      "Post-grado en Medicina Interna y Gastroenterología — PUCMM / Hospital Regional Universitario José María Cabral y Báez. Fellow en Enfermedades Crónicas del Intestino, Universidad de Río Piedras, Puerto Rico.",
+  },
+  {
+    icon: BookOpen,
+    title: "30+ Publicaciones y Presentaciones",
+    description:
+      "Autora de trabajos de investigación en gastroenterología presentados en congresos nacionales e internacionales, incluido el Congreso Panamericano y el Congreso Centroamericano y del Caribe.",
+  },
+  {
+    icon: Award,
+    title: "Certificación ASGE STAR en EMR",
+    description:
+      "Certificada por la American Society for Gastrointestinal Endoscopy (ASGE) en Resección Endoscópica de la Mucosa (EMR) del tracto gastrointestinal bajo.",
+  },
+  {
+    icon: Star,
+    title: "1er Centro de Excelencia en EII en RD",
+    description:
+      "Lidera el primer Centro de Excelencia en el Manejo de las Enfermedades Inflamatorias del Intestino (EII) en República Dominicana, certificado por PANCCO en 2025.",
+  },
+];
 
 export function SobreMi() {
   return (
@@ -28,31 +55,37 @@ export function SobreMi() {
               Dra. Verónica Lockward
             </h2>
             <p className="text-lg font-semibold text-stone-600">
-              Gastroenteróloga
+              Internista · Gastroenteróloga
             </p>
             <p className="text-stone-600 leading-relaxed">
-              Médica especialista en Medicina Interna y Gastroenterología con amplia experiencia en el diagnóstico y tratamiento de enfermedades del sistema digestivo. Comprometida con la salud y bienestar de sus pacientes a través de una atención personalizada y basada en evidencia.
+              Médica internista y gastroenteróloga con más de 20 años de
+              experiencia clínica. Egresada de la PUCMM, desarrolló sus
+              especialidades en el Hospital Regional Universitario José María
+              Cabral y Báez y se subespecializó como fellow en Enfermedades
+              Crónicas del Intestino en la Universidad de Río Piedras, Puerto
+              Rico. Cuenta además con un Máster en Gestión y Dirección de
+              Centros Hospitalarios de la Universidad de San Antonio, Madrid
+              (2016).
+            </p>
+            <p className="text-stone-600 leading-relaxed">
+              Ejerce en la Clínica Universitaria Unión Médica del Norte,
+              Santiago, donde lidera el primer Centro de Excelencia en el
+              Manejo de Enfermedades Inflamatorias del Intestino certificado
+              por PANCCO en República Dominicana.
             </p>
 
-            <ul className="space-y-3">
-              <li className="flex items-start gap-3">
-                <span className="w-8 h-8 rounded-full bg-stone-200 flex items-center justify-center shrink-0 mt-0.5">
-                  <BookOpen className="w-4 h-4 text-stone-600" />
-                </span>
-                <div>
-                  <span className="font-medium text-stone-800">Publicaciones y hospitales afiliados</span>
-                  <p className="text-sm text-stone-600">Resumen o enlaces según contenido final.</p>
-                </div>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="w-8 h-8 rounded-full bg-stone-200 flex items-center justify-center shrink-0 mt-0.5">
-                  <Award className="w-4 h-4 text-stone-600" />
-                </span>
-                <div>
-                  <span className="font-medium text-stone-800">Certificaciones</span>
-                  <p className="text-sm text-stone-600">Especialidad y certificaciones profesionales.</p>
-                </div>
-              </li>
+            <ul className="space-y-4 mt-2">
+              {credentials.map(({ icon: Icon, title, description }) => (
+                <li key={title} className="flex items-start gap-3">
+                  <span className="w-8 h-8 rounded-full bg-stone-200 flex items-center justify-center shrink-0 mt-0.5">
+                    <Icon className="w-4 h-4 text-stone-600" />
+                  </span>
+                  <div>
+                    <span className="font-medium text-stone-800">{title}</span>
+                    <p className="text-sm text-stone-600 mt-0.5">{description}</p>
+                  </div>
+                </li>
+              ))}
             </ul>
           </div>
         </div>

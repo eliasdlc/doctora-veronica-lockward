@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 
-const WHATSAPP_NUMBER = "1234567890";
+const WHATSAPP_NUMBER = "18098447072";
 
 function WhatsAppIcon() {
   return (

@@ -15,7 +15,7 @@ export function CTASection() {
         </p>
         <div className="flex flex-wrap items-center justify-center gap-4">
           <Link
-            href="https://wa.me/1234567890"
+            href="https://wa.me/18098447072"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-stone-600 hover:bg-stone-500 text-white font-semibold transition-colors"
@@ -24,7 +24,7 @@ export function CTASection() {
             Agendar por WhatsApp
           </Link>
           <Link
-            href="tel:+1234567890"
+            href="tel:+18092268686"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-stone-500 text-stone-100 hover:bg-stone-700 font-semibold transition-colors"
           >
             Llamar Ahora

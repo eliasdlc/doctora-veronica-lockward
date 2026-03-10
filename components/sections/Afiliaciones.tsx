@@ -7,13 +7,13 @@ interface Organization {
     shortName: string;
 }
 
-// Placeholder organizations — replace shortName with <Image /> when logos are available
+// Organizations — replace shortName with <Image /> when logos are available
 const organizations: Organization[] = [
-    { name: "Sociedad Dominicana de Gastroenterología", shortName: "SODOGASTRO" },
-    { name: "Colegio Médico Dominicano", shortName: "CMD" },
-    { name: "Asociación Latinoamericana de Gastroenterología", shortName: "ALAGE" },
-    { name: "World Gastroenterology Organisation", shortName: "WGO" },
-    { name: "Sociedad Dominicana de Medicina Interna", shortName: "SODOMI" },
+    { name: "Asociación Médica de Santiago", shortName: "AMS" },
+    { name: "Colegio Médico Dominicano de Santiago", shortName: "CMD" },
+    { name: "Sociedad de Gastroenterología de Santiago", shortName: "SGS" },
+    { name: "Clínica Universitaria Unión Médica del Norte", shortName: "UMN" },
+    { name: "European Crohn's and Colitis Organisation", shortName: "ECCO" },
 ];
 
 export function Afiliaciones() {

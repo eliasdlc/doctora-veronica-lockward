@@ -9,17 +9,17 @@ const contactItems = [
   {
     icon: MapPin,
     label: "Dirección",
-    value: "Calle Ejemplo 123, Ciudad",
+    value: "Ave. Juan Pablo Duarte No. 176, 3era Planta, Suite 316 — Clínica Unión Médica del Norte, Santiago, RD",
   },
   {
     icon: Phone,
     label: "Teléfono",
-    value: "+1 (809) 000-0000",
+    value: "809-226-8686 ext. 4316 · Cel: 809-844-7072",
   },
   {
     icon: Mail,
     label: "Email",
-    value: "contacto@ejemplo.com",
+    value: "veronicalockr@hotmail.com",
   },
   {
     icon: Clock,

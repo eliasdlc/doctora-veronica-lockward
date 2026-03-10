@@ -11,40 +11,40 @@ import {
 
 const services = [
   {
-    icon: Stethoscope,
-    title: "Consulta Gastroenterológica",
+    icon: HeartPulse,
+    title: "Enfermedad Inflamatoria Intestinal (EII)",
     description:
-      "Evaluación integral de su salud digestiva con enfoque personalizado y planes de tratamiento adaptados a sus necesidades.",
+      "Diagnóstico y manejo de la enfermedad de Crohn y la colitis ulcerosa. Centro de Excelencia en EII certificado por PANCCO, el primero en República Dominicana.",
   },
   {
     icon: Camera,
     title: "Endoscopia Digestiva",
     description:
-      "Procedimientos de endoscopia de vías digestivas altas para diagnóstico y seguimiento con tecnología de vanguardia.",
+      "Endoscopia de vías altas y procedimientos de Resección Endoscópica de la Mucosa (EMR). Certificada ASGE STAR para EMR del tracto gastrointestinal bajo.",
   },
   {
     icon: Activity,
-    title: "Colonoscopia",
+    title: "Colonoscopia y Cáncer Colorrectal",
     description:
-      "Estudio del colon para detección temprana, prevención y diagnóstico de condiciones del tracto digestivo bajo.",
+      "Detección temprana y prevención del cáncer colorrectal mediante colonoscopia. Especial atención en pacientes jóvenes de 15 a 45 años sin antecedentes conocidos.",
   },
   {
     icon: FileSearch,
-    title: "Estudios Diagnósticos",
+    title: "Enfermedad Hepática Grasa (MASLD)",
     description:
-      "Amplia gama de estudios de laboratorio e imagen para un diagnóstico preciso de enfermedades digestivas.",
+      "Evaluación, diagnóstico y estratificación de riesgo de la enfermedad hepática esteatósica asociada a disfunción metabólica (MASLD/MAFLD).",
   },
   {
-    icon: HeartPulse,
-    title: "Tratamiento de Enfermedades Digestivas",
+    icon: Stethoscope,
+    title: "Consulta Gastroenterológica General",
     description:
-      "Manejo integral de reflujo, gastritis, síndrome de intestino irritable y otras condiciones digestivas.",
+      "Evaluación integral del sistema digestivo: reflujo, gastritis, síndrome de intestino irritable, patología del tracto GI superior e inferior.",
   },
   {
     icon: Syringe,
-    title: "Procedimientos Terapéuticos",
+    title: "Pancreatitis",
     description:
-      "Intervenciones endoscópicas terapéuticas para el tratamiento de diversas patologías del sistema digestivo.",
+      "Manejo de pancreatitis aguda, pancreatitis autoinmune y su overlap con hepatitis autoinmune, con enfoque en las guías de manejo actualizadas.",
   },
 ];
 

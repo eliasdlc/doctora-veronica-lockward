@@ -1,6 +1,7 @@
 "use client";
 
 import { Building2 } from "lucide-react";
+import { motion } from "framer-motion";
 
 interface Organization {
     name: string;
@@ -18,11 +19,21 @@ const organizations: Organization[] = [
 
 export function Afiliaciones() {
     return (
-        <section className="py-4 md:py-6 bg-white border-t border-stone-200">
+        <section className="py-10 md:py-16 bg-white border-t border-stone-200 overflow-hidden">
             <div className="max-w-6xl mx-auto px-6 lg:px-8">
-                <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12">
+                <motion.div 
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-50px" }}
+                    variants={{
+                        hidden: { opacity: 0 },
+                        visible: { opacity: 1, transition: { staggerChildren: 0.1 } }
+                    }}
+                    className="flex flex-wrap items-center justify-center gap-8 md:gap-14"
+                >
                     {organizations.map((org) => (
-                        <div
+                        <motion.div
+                            variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5 } } }}
                             key={org.shortName}
                             className="group flex flex-col items-center gap-2"
                             title={org.name}
@@ -34,9 +45,9 @@ export function Afiliaciones() {
                             <span className="text-xs font-semibold text-stone-500 group-hover:text-stone-700 transition-colors">
                                 {org.shortName}
                             </span>
-                        </div>
+                        </motion.div>
                     ))}
-                </div>
+                </motion.div>
             </div>
         </section>
     );

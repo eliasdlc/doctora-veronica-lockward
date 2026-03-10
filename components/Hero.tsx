@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
 import { Phone, ShieldCheck, Award, Heart } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -38,18 +39,42 @@ const stats = [
     { icon: ShieldCheck, value: "100%", label: "compromiso con tu salud" },
 ];
 
+const fadeInUp = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+        opacity: 1,
+        y: 0,
+        transition: { duration: 0.8, ease: "easeOut" }
+    }
+} as const;
+
+const staggerContainer = {
+    hidden: { opacity: 0 },
+    visible: {
+        opacity: 1,
+        transition: {
+            staggerChildren: 0.15
+        }
+    }
+};
+
 export function Hero() {
     return (
         <section
             id="inicio"
             className="relative overflow-hidden bg-linear-to-br from-white via-brand-accent/5 to-brand-accent/10"
         >
-            <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16 md:py-24">
+            <div className="max-w-7xl mx-auto px-6 lg:px-8 pb-16 pt-8 md:pb-24 md:pt-12">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
                     {/* ── Columna izquierda: texto + CTAs ── */}
-                    <div className="flex flex-col gap-8">
-                        <div className="flex flex-col gap-6">
+                    <motion.div
+                        className="flex flex-col gap-8"
+                        initial="hidden"
+                        animate="visible"
+                        variants={staggerContainer}
+                    >
+                        <motion.div className="flex flex-col gap-6" variants={fadeInUp}>
                             <Badge
                                 variant="outline"
                                 className="w-fit gap-2 border-brand-accent bg-brand-accent/10 text-brand-primary px-4 py-1.5 text-xs font-semibold tracking-wider uppercase"
@@ -68,14 +93,14 @@ export function Hero() {
                             <p className="text-base md:text-lg text-stone-600 leading-relaxed max-w-lg">
                                 Soy la Dra. Verónica Lockward, ...
                             </p>
-                        </div>
+                        </motion.div>
 
                         {/* CTAs */}
-                        <div className="flex flex-wrap items-center gap-4">
+                        <motion.div className="flex flex-wrap items-center gap-4" variants={fadeInUp}>
                             <Button
                                 asChild
                                 size="lg"
-                                className="rounded-full bg-brand-primary text-brand-light hover:bg-brand-primary/90 px-8 shadow-md shadow-brand-primary/20"
+                                className="rounded-full bg-brand-primary text-brand-light hover:bg-brand-primary/90 px-8 shadow-[0_8px_30px_rgb(0,0,0,0.08)] shadow-brand-primary/20"
                             >
                                 <Link href="#contacto">
                                     <Phone size={16} />
@@ -91,10 +116,10 @@ export function Hero() {
                             >
                                 <Link href="#servicios">Ver Servicios</Link>
                             </Button>
-                        </div>
+                        </motion.div>
 
                         {/* Stats */}
-                        <div className="flex flex-wrap items-center gap-6 pt-4 border-t border-stone-200">
+                        <motion.div className="flex flex-wrap items-center gap-6 pt-4 border-t border-stone-200" variants={fadeInUp}>
                             {stats.map(({ icon: Icon, value, label }) => (
                                 <div key={label} className="flex items-center gap-2">
                                     <Icon size={18} className="text-brand-accent" />
@@ -104,11 +129,16 @@ export function Hero() {
                                     <span className="text-sm text-stone-500">{label}</span>
                                 </div>
                             ))}
-                        </div>
-                    </div>
+                        </motion.div>
+                    </motion.div>
 
                     {/* ── Columna derecha: Carrusel de imágenes ── */}
-                    <div className="relative flex items-center justify-center lg:justify-end">
+                    <motion.div
+                        className="relative flex items-center justify-center lg:justify-end"
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
+                    >
                         {/* Decoración de fondo */}
                         <div className="absolute -z-10 w-[90%] h-[90%] rounded-3xl bg-brand-accent/15 rotate-3 translate-x-3 translate-y-3" />
 
@@ -123,7 +153,7 @@ export function Hero() {
                                 <CarouselContent>
                                     {slides.map((slide, idx) => (
                                         <CarouselItem key={slide.id}>
-                                            <div className="relative overflow-hidden rounded-2xl border-2 border-brand-accent/30 shadow-lg aspect-4/5">
+                                            <div className="relative overflow-hidden rounded-2xl border-2 border-brand-accent/30 shadow-[0_8px_30px_rgb(0,0,0,0.08)] aspect-4/5">
                                                 <Image
                                                     src={slide.src}
                                                     alt={slide.alt}
@@ -151,7 +181,7 @@ export function Hero() {
                                 ))}
                             </div>
                         </div>
-                    </div>
+                    </motion.div>
                 </div>
             </div>
         </section>

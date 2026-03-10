@@ -23,8 +23,8 @@ export function WhatsAppButton() {
   return (
     <div className="group fixed bottom-6 right-6 z-50 flex items-center">
       {/* Tooltip label */}
-      <span className="mr-3 whitespace-nowrap rounded-lg bg-stone-800 px-3 py-1.5 text-sm font-medium text-white opacity-0 shadow-md transition-all duration-200 group-hover:opacity-100">
-        Agendar cita
+      <span className="mr-3 whitespace-nowrap rounded-lg bg-stone-800 px-3 py-1.5 text-sm font-medium text-white opacity-0 shadow-[0_4px_20px_rgb(0,0,0,0.05)] transition-all duration-200 group-hover:opacity-100">
+        Agendar Cita
       </span>
 
       {/* Ping ring */}
@@ -36,7 +36,7 @@ export function WhatsAppButton() {
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Contactar por WhatsApp"
-        className="relative flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] shadow-lg shadow-green-500/40 transition-transform duration-200 hover:scale-110"
+        className="relative flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] shadow-[0_8px_30px_rgb(37,211,102,0.3)] transition-transform duration-200 hover:scale-110"
       >
         <WhatsAppIcon />
       </Link>

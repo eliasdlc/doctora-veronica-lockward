@@ -8,6 +8,7 @@ import {
   HeartPulse,
   Syringe,
 } from "lucide-react";
+import { motion } from "framer-motion";
 
 const services = [
   {
@@ -61,22 +62,38 @@ export function Servicios() {
           </p>
         </header>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <motion.div 
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          variants={{
+            hidden: { opacity: 0 },
+            visible: {
+              opacity: 1,
+              transition: { staggerChildren: 0.1 }
+            }
+          }}
+        >
           {services.map(({ icon: Icon, title, description }) => (
-            <article
+            <motion.article
               key={title}
-              className="p-6 rounded-xl border border-stone-200 bg-white shadow-sm flex flex-col gap-4"
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } }
+              }}
+              className="p-8 rounded-2xl border border-stone-200 bg-white shadow-sm flex flex-col gap-5 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:border-brand-accent/40 group"
             >
-              <div className="w-10 h-10 rounded-lg bg-stone-200 flex items-center justify-center shrink-0">
-                <Icon className="w-5 h-5 text-stone-600" />
+              <div className="w-12 h-12 rounded-xl bg-brand-accent/15 flex items-center justify-center shrink-0 group-hover:bg-brand-primary group-hover:text-white transition-colors duration-300 text-brand-primary">
+                <Icon className="w-6 h-6" />
               </div>
-              <h3 className="text-lg font-bold text-stone-800">{title}</h3>
-              <p className="text-sm text-stone-600 leading-relaxed">
+              <h3 className="text-xl font-bold text-stone-800 group-hover:text-brand-primary transition-colors duration-300">{title}</h3>
+              <p className="text-sm md:text-base text-stone-600 leading-relaxed">
                 {description}
               </p>
-            </article>
+            </motion.article>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

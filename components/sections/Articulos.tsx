@@ -1,6 +1,7 @@
 "use client";
 
 import { ArrowRight, Calendar, Clock, BookOpen } from "lucide-react";
+import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { motion } from "framer-motion";
 
@@ -84,91 +85,86 @@ const itemVariants = {
 // Highlight card for the most recent article
 function FeaturedArticle({ article }: { article: Article }) {
     return (
-        <motion.article
-            variants={itemVariants}
-            className="group relative overflow-hidden rounded-2xl border border-brand-accent/30 bg-linear-to-br from-brand-primary to-brand-primary/90 shadow-lg lg:col-span-2 lg:row-span-2 flex flex-col justify-end min-h-[400px]"
-        >
-            {/* Fondo con leve animación en hover para dar sensación de vida sin marear */}
-            <div className="absolute inset-0 bg-linear-to-t from-brand-primary via-brand-primary/80 to-transparent z-0 transition-transform duration-700 group-hover:scale-105" />
+        <Link href={`/articulos/${article.title.toLowerCase().replace(/ /g, "-")}`} className="lg:col-span-2 lg:row-span-2 block group">
+            <motion.article
+                variants={itemVariants}
+                className="relative overflow-hidden rounded-2xl border border-brand-accent/30 bg-linear-to-br from-brand-primary to-brand-primary/90 shadow-[0_8px_30px_rgb(0,0,0,0.08)] flex flex-col justify-end min-h-[400px] h-full"
+            >
+                {/* Fondo con leve animación en hover para dar sensación de vida sin marear */}
+                <div className="absolute inset-0 bg-linear-to-t from-brand-primary via-brand-primary/80 to-transparent z-0 transition-transform duration-700 group-hover:scale-105" />
 
-            <div className="relative z-10 p-8 flex flex-col gap-4">
-                <Badge className="w-fit gap-1.5 bg-brand-accent text-brand-primary text-xs font-semibold px-3 py-1 border-0 shadow-sm">
-                    <BookOpen size={12} />
-                    {article.category}
-                </Badge>
+                <div className="relative z-10 p-8 flex flex-col gap-4">
+                    <Badge className="w-fit gap-1.5 bg-brand-accent text-brand-primary text-xs font-semibold px-3 py-1 border-0 shadow-[0_4px_20px_rgb(0,0,0,0.05)]">
+                        <BookOpen size={12} />
+                        {article.category}
+                    </Badge>
 
-                <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white leading-tight">
-                    {article.title}
-                </h3>
+                    <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white leading-tight">
+                        {article.title}
+                    </h3>
+                    <p className="text-brand-light/90 text-sm md:text-base line-clamp-2 md:line-clamp-3">
+                        {article.excerpt}
+                    </p>
 
-                <p className="text-brand-light/90 leading-relaxed max-w-2xl line-clamp-3 text-sm md:text-base">
-                    {article.excerpt}
-                </p>
-
-                <div className="flex flex-wrap items-center gap-4 text-brand-light/70 text-sm mt-2">
-                    <span className="inline-flex items-center gap-1.5">
-                        <Calendar size={14} />
-                        {article.date}
-                    </span>
-                    <span className="inline-flex items-center gap-1.5">
-                        <Clock size={14} />
-                        {article.readTime} lectura
-                    </span>
+                    <div className="flex items-center gap-4 mt-2 text-brand-light/80 text-xs md:text-sm">
+                        <span className="flex items-center gap-1.5 backdrop-blur-sm bg-black/10 px-3 py-1.5 rounded-full">
+                            <Calendar size={14} />
+                            {article.date}
+                        </span>
+                        <span className="flex items-center gap-1.5 backdrop-blur-sm bg-black/10 px-3 py-1.5 rounded-full">
+                            <Clock size={14} />
+                            {article.readTime}
+                        </span>
+                    </div>
                 </div>
-
-                <a
-                    href="#"
-                    className="inline-flex items-center gap-2 text-brand-accent font-semibold mt-4 group-hover:gap-3 transition-all w-fit"
-                >
-                    Leer artículo completo
-                    <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
-                </a>
-            </div>
-        </motion.article>
+            </motion.article>
+        </Link>
     );
 }
 
 // Smaller article cards
 function ArticleCard({ article }: { article: Article }) {
     return (
-        <motion.article
-            variants={itemVariants}
-            className="group flex flex-col justify-between rounded-xl border border-stone-200 bg-white p-6 shadow-sm hover:shadow-xl hover:-translate-y-1 hover:border-brand-accent/40 transition-all duration-300 h-full min-h-[280px]"
-        >
-            <div className="flex flex-col gap-3">
-                <Badge
-                    variant="outline"
-                    className="w-fit gap-1.5 border-stone-300 text-stone-600 text-xs font-medium px-2.5 py-1"
-                >
-                    {article.category}
-                </Badge>
-
-                <h3 className="text-lg font-bold text-stone-800 leading-snug group-hover:text-brand-primary transition-colors">
-                    {article.title}
-                </h3>
-
-                <p className="text-sm text-stone-600 leading-relaxed line-clamp-3">
-                    {article.excerpt}
-                </p>
-            </div>
-
-            <div className="mt-6 pt-4 border-t border-stone-100 flex items-center justify-between">
-                <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3 text-xs text-stone-500">
-                    <span className="inline-flex items-center gap-1">
-                        <Calendar size={12} />
-                        {article.date}
-                    </span>
+        <Link href={`/articulos/${article.title.toLowerCase().replace(/ /g, "-")}`} className="block group h-full">
+            <motion.article
+                variants={itemVariants}
+                key={article.id}
+                className="flex flex-col justify-between rounded-xl border border-stone-200 bg-white p-6 shadow-sm group-hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] group-hover:-translate-y-1 group-hover:border-brand-accent/40 transition-all duration-300 h-full min-h-[280px]"
+            >
+                <div className="flex flex-col gap-3">
+                    <Badge
+                        variant="outline"
+                        className="w-fit gap-1.5 border-stone-300 text-stone-600 text-xs font-medium px-2.5 py-1"
+                    >
+                        {article.category}
+                    </Badge>
+                    <h3 className="text-lg md:text-xl font-bold text-stone-800 leading-snug group-hover:text-brand-primary transition-colors">
+                        {article.title}
+                    </h3>
+                    <p className="text-stone-600 text-sm line-clamp-2 mt-1">
+                        {article.excerpt}
+                    </p>
                 </div>
 
-                <a
-                    href="#"
-                    className="inline-flex items-center gap-1 text-sm font-semibold text-brand-primary group-hover:gap-2 transition-all"
-                >
-                    Leer
-                    <ArrowRight size={14} />
-                </a>
-            </div>
-        </motion.article>
+                <div className="flex flex-col gap-4 mt-6">
+                    <div className="flex items-center gap-3 text-stone-500 text-xs font-medium">
+                        <span className="flex items-center gap-1">
+                            <Calendar size={14} />
+                            {article.date}
+                        </span>
+                        <span className="flex items-center gap-1">
+                            <Clock size={14} />
+                            {article.readTime}
+                        </span>
+                    </div>
+
+                    <div className="flex items-center text-sm font-bold text-brand-primary mt-2">
+                        Leer artículo
+                        <ArrowRight size={16} className="ml-1 opacity-0 -translate-x-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0" />
+                    </div>
+                </div>
+            </motion.article>
+        </Link>
     );
 }
 
@@ -240,13 +236,13 @@ export function Articulos() {
                     transition={{ delay: 0.8 }}
                     className="mt-12 text-center"
                 >
-                    <a
-                        href="#"
-                        className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full border-2 border-brand-primary text-brand-primary font-bold hover:bg-brand-primary hover:text-white transition-all hover:shadow-lg hover:-translate-y-0.5"
+                    <Link // Changed to Link
+                        href="/articulos" // Added href
+                        className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full border-2 border-brand-primary text-brand-primary font-bold hover:bg-brand-primary hover:text-white transition-all hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:-translate-y-0.5" // Updated shadow
                     >
                         Explorar todos los artículos
                         <ArrowRight size={18} />
-                    </a>
+                    </Link> {/* Changed to Link */}
                 </motion.div>
             </div>
         </section>

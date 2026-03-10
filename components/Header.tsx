@@ -37,9 +37,9 @@ export function Header() {
     return (
         <>
             <header
-                className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out
-                ${isScrolled ? "bg-brand-light/60 backdrop-blur-md shadow-sm" : "bg-brand-light backdrop-blur-md shadow-sm border-b border-stone-100"}`}
-            >
+                className={`fixed top-0 w-full z-50 transition-all duration-300
+                ${isScrolled ? "bg-brand-light/60 backdrop-blur-md shadow-[0_4px_20px_rgb(0,0,0,0.05)]" : "bg-brand-light backdrop-blur-md shadow-sm border-b border-stone-100"}
+            `}    >
                 <div className="w-full mx-auto">
                     <div className="flex flex-row items-center justify-between h-auto min-h-18 md:h-20 w-full relative">
 
@@ -69,7 +69,7 @@ export function Header() {
                                 <Link
                                     key={href}
                                     href={href}
-                                    className="relative text-sm lg:text-md font-bold text-stone-600 hover:text-brand-primary transition-colors duration-200 after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-0.5 after:bg-brand-accent after:transition-all after:duration-300 hover:after:w-full"
+                                    className="relative text-sm lg:text-md font-bold text-stone hover:text-brand-primary transition-colors duration-200 after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-0.5 after:bg-brand-accent after:transition-all after:duration-300 hover:after:w-full"
                                 >
                                     {label}
                                 </Link>
@@ -80,7 +80,7 @@ export function Header() {
                         <div className="hidden md:flex items-center pr-8 shrink-0">
                             <Link
                                 href="#contacto"
-                                className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-brand-primary text-brand-light text-sm font-semibold hover:opacity-90 active:scale-95 transition-all duration-200 shadow-sm"
+                                className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-brand-primary text-brand-light text-sm font-semibold hover:opacity-90 active:scale-95 transition-all duration-200 shadow-[0_4px_20px_rgb(0,0,0,0.05)]"
                             >
                                 <Phone size={14} />
                                 Agendar consulta
@@ -116,7 +116,7 @@ export function Header() {
                 {/* Panel lateral */}
                 <div
                     className={`
-                        absolute top-0 right-0 h-full w-[75%] max-w-[280px] bg-white shadow-2xl
+                        absolute top-0 right-0 h-full w-[75%] max-w-[280px] bg-white shadow-[0_8px_30px_rgb(0,0,0,0.12)]
                         flex flex-col pt-22 px-6 pb-8
                         transition-transform duration-300 ease-in-out
                         ${isMobileMenuOpen ? "translate-x-0" : "translate-x-full"}
@@ -139,7 +139,7 @@ export function Header() {
                         <Link
                             href="#contacto"
                             onClick={handleNavClick}
-                            className="flex items-center justify-center gap-2 w-full py-3.5 rounded-full bg-brand-primary text-white font-semibold hover:opacity-90 active:scale-95 transition-all duration-200 shadow-md"
+                            className="flex items-center justify-center gap-2 w-full py-3.5 rounded-full bg-brand-primary text-white font-semibold hover:opacity-90 active:scale-95 transition-all duration-200 shadow-[0_4px_20px_rgb(0,0,0,0.05)]"
                         >
                             <Phone size={18} />
                             Reservar Cita

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useCallback, useEffect } from "react";
-import { ArrowLeft, ArrowRight, Quote, Star } from "lucide-react";
+import { ArrowLeft, ArrowRight, Quote, Star, User } from "lucide-react";
 import {
   Carousel,
   CarouselContent,
@@ -11,6 +11,7 @@ import {
   type CarouselApi,
 } from "@/components/ui/carousel";
 import { Button } from "@/components/ui/button";
+import Autoplay from "embla-carousel-autoplay";
 
 const testimonials = [
   {
@@ -90,23 +91,23 @@ export function Testimonios() {
           <div className="relative p-8 w-full">
             <div className="flex flex-row w-full gap-4 items-center justify-center overflow-visible">
 
-              <button className="shrink-0 w-10 h-10 rounded-full border border-stone-300 
-               bg-white hover:bg-stone-100 text-stone-600 cursor-pointer  
-               flex items-center justify-center"
+              <button className="shrink-0 w-12 h-12 rounded-full border-2 border-transparent 
+               bg-brand-primary text-white hover:bg-brand-primary/90 hover:scale-105 active:scale-95 transition-all shadow-md z-10 flex items-center justify-center -mr-2 md:-mr-6"
                 onClick={() => api?.scrollPrev()}
-                aria-label="Siguiente testimonio">
-                <ArrowLeft />
+                aria-label="Anterior testimonio">
+                <ArrowLeft size={20} />
               </button>
 
-              <Carousel setApi={setApi} opts={{ loop: true, align: "center" }} className="w-full">
-                <CarouselContent>
+              <Carousel setApi={setApi} opts={{ loop: true, align: "center" }} plugins={[Autoplay({ delay: 5000 })]} className="w-full">
+                <CarouselContent className="py-6">
                   {testimonials.map((t, i) => {
                     const isActive = current === i;
 
                     return (
                       <CarouselItem key={i} className="md:basis-1/3">
-                        <article className={`p-8 rounded-2xl border border-stone-200 bg-white shadow-sm text-center transition-all duration-500
-                                            ${isActive ? "scale-100 opacity-100" : "scale-[0.85] opacity-50"}`}>
+                        <article className={`p-8 rounded-2xl border bg-white text-center transition-all duration-500
+                                            ${isActive ? "scale-100 opacity-100 shadow-[0_8px_30px_rgb(0,0,0,0.08)] shadow-brand-primary/10 border-brand-primary/20 ring-[4px] ring-brand-primary/5 cursor-default" : "scale-[0.85] opacity-40 shadow-sm border-stone-200 cursor-pointer pointer-events-auto"}`}
+                                            onClick={() => !isActive && api?.scrollTo(i)}>
                           <Quote className="w-10 h-10 text-stone-300 mx-auto mb-4" aria-hidden />
                           <p className="text-stone-700 italic leading-relaxed mb-6">
                             &ldquo;{t.text}&rdquo;
@@ -116,8 +117,13 @@ export function Testimonios() {
                               <Star key={n} className="w-5 h-5 fill-stone-400 text-stone-400" />
                             ))}
                           </div>
-                          <p className="font-semibold text-stone-800">{t.name}</p>
-                          <p className="text-sm text-stone-500">{t.role}</p>
+                          <div className="flex flex-col items-center gap-1 mt-6">
+                            <div className="w-12 h-12 rounded-full bg-stone-100 flex items-center justify-center mb-2 border border-stone-200">
+                              <User className="w-6 h-6 text-stone-400" />
+                            </div>
+                            <p className="font-semibold text-stone-800">{t.name}</p>
+                            <p className="text-sm text-stone-500">{t.role}</p>
+                          </div>
                         </article>
                       </CarouselItem>
                     )
@@ -125,12 +131,11 @@ export function Testimonios() {
                 </CarouselContent>
               </Carousel>
 
-              <button className="shrink-0 w-10 h-10 rounded-full border border-stone-300 
-               bg-white hover:bg-stone-100 text-stone-600 cursor-pointer
-               flex items-center justify-center"
+              <button className="shrink-0 w-12 h-12 rounded-full border-2 border-transparent 
+               bg-brand-primary text-white hover:bg-brand-primary/90 hover:scale-105 active:scale-95 transition-all shadow-md z-10 flex items-center justify-center -ml-2 md:-ml-6"
                 onClick={() => api?.scrollNext()}
-                aria-label="Anterior testimonio">
-                <ArrowRight />
+                aria-label="Siguiente testimonio">
+                <ArrowRight size={20} />
               </button>
 
             </div>
@@ -143,7 +148,7 @@ export function Testimonios() {
                   role="tab"
                   aria-selected={i === current}
                   aria-label={`Testimonio ${i + 1}`}
-                  className={`w-2.5 h-2.5 rounded-full transition-colors ${i === current ? "bg-stone-600" : "bg-stone-300 hover:bg-stone-400"
+                  className={`w-3 h-3 rounded-full transition-all duration-300 ${i === current ? "bg-brand-primary w-8" : "bg-stone-300 hover:bg-stone-400"
                     }`}
                   onClick={() => api?.scrollTo(i)}
                 />

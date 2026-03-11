@@ -9,8 +9,9 @@ import logo from "@/assets/images/logo.jpg";
 
 const navLinks = [
     { href: "#inicio", label: "Inicio" },
-    { href: "#sobre-mi", label: "Sobre Mí" },
     { href: "#servicios", label: "Servicios" },
+    { href: "#sobre-mi", label: "Sobre Mí" },
+    { href: "#preguntas-frecuentes", label: "Preguntas Frecuentes" },
     { href: "#testimonios", label: "Testimonios" },
     { href: "#contacto", label: "Contacto" },
 ];

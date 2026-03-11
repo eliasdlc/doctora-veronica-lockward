@@ -51,19 +51,47 @@ const services = [
 
 export function Servicios() {
   return (
-    <section id="servicios" className="py-16 md:py-24 bg-stone-50 border-t border-stone-200">
-      <div className="max-w-6xl mx-auto px-6 lg:px-8">
-        <header className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-stone-800">
-            Servicios
-          </h2>
-          <p className="mt-2 text-stone-600 max-w-2xl mx-auto">
-            Atención especializada en gastroenterología para cuidar su salud digestiva.
-          </p>
-        </header>
+    <section id="servicios" className="py-16 md:py-32 bg-stone-50 border-t border-stone-200">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="flex flex-col lg:flex-row gap-12 lg:gap-24">
+          
+          {/* Columna Izquierda - Sticky */}
+          <div className="lg:w-1/3">
+            <div className="lg:sticky lg:top-32 flex flex-col gap-6 text-left">
+              <motion.span 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="inline-flex w-fit items-center gap-2 px-4 py-1.5 rounded-full border border-brand-accent bg-brand-accent/10 text-xs font-semibold tracking-wide uppercase text-brand-primary"
+              >
+                Especialidades
+              </motion.span>
+              <motion.h2 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 }}
+                className="text-3xl md:text-4xl lg:text-5xl font-bold text-stone-800"
+              >
+                Servicios
+              </motion.h2>
+              <motion.p 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2 }}
+                className="text-stone-600 leading-relaxed text-base md:text-lg"
+              >
+                Atención especializada en gastroenterología para cuidar su salud digestiva. Opciones de tratamiento de última generación para problemas digestivos agudos y crónicos.
+              </motion.p>
+            </div>
+          </div>
+
+          {/* Columna Derecha - Tarjetas de servicio */}
+          <div className="lg:w-2/3">
 
         <motion.div 
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          className="grid grid-cols-1 md:grid-cols-2 gap-6"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
@@ -94,6 +122,8 @@ export function Servicios() {
             </motion.article>
           ))}
         </motion.div>
+          </div>
+        </div>
       </div>
     </section>
   );

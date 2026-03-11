@@ -2,7 +2,8 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 import { Phone, ShieldCheck, Award, Heart } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -59,8 +60,20 @@ const staggerContainer = {
 };
 
 export function Hero() {
+    const containerRef = useRef<HTMLElement>(null);
+    const { scrollYProgress } = useScroll({
+        target: containerRef,
+        offset: ["start start", "end start"]
+    });
+
+    const textY = useTransform(scrollYProgress, [0, 1], ["0%", "40%"]);
+    const textOpacity = useTransform(scrollYProgress, [0, 1], [1, 0.2]);
+    const imageY = useTransform(scrollYProgress, [0, 1], ["0%", "15%"]);
+    const bgRotate = useTransform(scrollYProgress, [0, 1], [3, 15]);
+
     return (
         <section
+            ref={containerRef}
             id="inicio"
             className="relative overflow-hidden bg-linear-to-br from-white via-brand-accent/5 to-brand-accent/10"
         >
@@ -70,6 +83,7 @@ export function Hero() {
                     {/* ── Columna izquierda: texto + CTAs ── */}
                     <motion.div
                         className="flex flex-col gap-8"
+                        style={{ y: textY, opacity: textOpacity }}
                         initial="hidden"
                         animate="visible"
                         variants={staggerContainer}
@@ -135,12 +149,16 @@ export function Hero() {
                     {/* ── Columna derecha: Carrusel de imágenes ── */}
                     <motion.div
                         className="relative flex items-center justify-center lg:justify-end"
+                        style={{ y: imageY }}
                         initial={{ opacity: 0, scale: 0.95 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
                     >
                         {/* Decoración de fondo */}
-                        <div className="absolute -z-10 w-[90%] h-[90%] rounded-3xl bg-brand-accent/15 rotate-3 translate-x-3 translate-y-3" />
+                        <motion.div 
+                            className="absolute -z-10 w-[90%] h-[90%] rounded-3xl bg-brand-accent/15 translate-x-3 translate-y-3" 
+                            style={{ rotate: bgRotate }}
+                        />
 
                         <div className="w-full max-w-md lg:max-w-lg">
                             <Carousel

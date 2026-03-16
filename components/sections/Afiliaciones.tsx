@@ -15,6 +15,7 @@ const organizations: Organization[] = [
     { name: "Sociedad de Gastroenterología de Santiago", shortName: "SGS", logo: "/logos/SGS.png" },
     { name: "Clínica Universitaria Unión Médica del Norte", shortName: "UMN", logo: "/logos/UMN.jpg" },
     { name: "European Crohn's and Colitis Organisation", shortName: "ECCO", logo: "/logos/ECCO.png" },
+    { name: "Pan American Crohn's and Colitis Organisation", shortName: "PANCCO", logo: "/logos/PANCCO.png" },
 ];
 
 export function Afiliaciones() {

@@ -135,17 +135,20 @@ function Carousel({
 function CarouselContent({ className, ...props }: React.ComponentProps<"div">) {
   const { carouselRef, orientation } = useCarousel()
 
+  const isOverflowVisible = className?.includes("overflow-visible")
+  const innerClassName = className?.replace("overflow-visible", "")
+
   return (
     <div
       ref={carouselRef}
-      className="overflow-hidden"
+      className={isOverflowVisible ? "overflow-visible" : "overflow-hidden"}
       data-slot="carousel-content"
     >
       <div
         className={cn(
           "flex",
           orientation === "horizontal" ? "-ml-4" : "-mt-4 flex-col",
-          className
+          innerClassName
         )}
         {...props}
       />

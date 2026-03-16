@@ -11,7 +11,6 @@ interface Organization {
 }
 
 const organizations: Organization[] = [
-    { name: "Asociación Médica de Santiago", shortName: "AMS" },
     { name: "Colegio Médico Dominicano de Santiago", shortName: "CMD", logo: "/logos/CMD.png" },
     { name: "Sociedad de Gastroenterología de Santiago", shortName: "SGS", logo: "/logos/SGS.png" },
     { name: "Clínica Universitaria Unión Médica del Norte", shortName: "UMN", logo: "/logos/UMN.jpg" },

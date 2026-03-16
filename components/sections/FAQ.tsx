@@ -18,38 +18,23 @@ interface FAQItem {
 const faqs: FAQItem[] = [
     {
         question: "¿Cuándo debo consultar a un gastroenterólogo?",
-        answer:
-            "Debe consultar si presenta síntomas persistentes como dolor abdominal, acidez frecuente, cambios en el hábito intestinal, sangrado digestivo, pérdida de peso inexplicable o dificultad para tragar. También se recomienda una consulta preventiva a partir de los 45 años para evaluación del colon.",
+        answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam finibus ornare pulvinar. Fusce luctus euismod facilisis. Ut scelerisque, justo eu fringilla fringilla, magna nunc mattis nunc, tempus posuere augue turpis et mi. Praesent congue dolor elit. Suspendisse ornare dapibus vestibulum.",
     },
     {
         question: "¿Cómo me preparo para una endoscopia digestiva?",
-        answer:
-            "Generalmente se requiere un ayuno de 8 a 12 horas antes del procedimiento. Debe informar sobre los medicamentos que toma, especialmente anticoagulantes. En la consulta previa se le darán instrucciones específicas según su caso y el tipo de estudio a realizar.",
-    },
-    {
-        question: "¿Es dolorosa la colonoscopia?",
-        answer:
-            "La colonoscopia se realiza bajo sedación, por lo que no sentirá dolor durante el procedimiento. Puede experimentar una leve distensión abdominal después, que se resuelve rápidamente. El equipo médico estará atento a su comodidad en todo momento.",
+        answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam finibus ornare pulvinar. Fusce luctus euismod facilisis. Ut scelerisque, justo eu fringilla fringilla, magna nunc mattis nunc, tempus posuere augue turpis et mi. Praesent congue dolor elit. Suspendisse ornare dapibus vestibulum.",
     },
     {
         question: "¿Cuánto tiempo dura una consulta gastroenterológica?",
-        answer:
-            "La primera consulta suele durar entre 30 y 45 minutos, ya que incluye una evaluación completa de su historial médico, síntomas y examen físico. Las consultas de seguimiento pueden ser más breves, de 15 a 20 minutos, dependiendo de su caso.",
+        answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam finibus ornare pulvinar. Fusce luctus euismod facilisis. Ut scelerisque, justo eu fringilla fringilla, magna nunc mattis nunc, tempus posuere augue turpis et mi. Praesent congue dolor elit. Suspendisse ornare dapibus vestibulum.",
     },
     {
         question: "¿Qué enfermedades trata la gastroenterología?",
-        answer:
-            "La gastroenterología abarca enfermedades del esófago, estómago, intestino delgado, colon, hígado, vesícula biliar y páncreas. Esto incluye reflujo, gastritis, úlceras, síndrome de intestino irritable, enfermedad inflamatoria intestinal, hepatitis, cálculos biliares y más.",
+        answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam finibus ornare pulvinar. Fusce luctus euismod facilisis. Ut scelerisque, justo eu fringilla fringilla, magna nunc mattis nunc, tempus posuere augue turpis et mi. Praesent congue dolor elit. Suspendisse ornare dapibus vestibulum.",
     },
     {
         question: "¿Aceptan seguros médicos?",
-        answer:
-            "Sí, trabajamos con los principales seguros médicos del país. Le recomendamos contactarnos con anticipación para confirmar la cobertura de su plan específico y los pasos necesarios para su autorización.",
-    },
-    {
-        question: "¿Aceptan seguros médicos?",
-        answer:
-            "Sí, trabajamos con los principales seguros médicos del país. Le recomendamos contactarnos con anticipación para confirmar la cobertura de su plan específico y los pasos necesarios para su autorización.",
+        answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam finibus ornare pulvinar. Fusce luctus euismod facilisis. Ut scelerisque, justo eu fringilla fringilla, magna nunc mattis nunc, tempus posuere augue turpis et mi. Praesent congue dolor elit. Suspendisse ornare dapibus vestibulum.",
     },
 ];
 
@@ -62,12 +47,12 @@ export function FAQ() {
             <div className="max-w-6xl mx-auto px-6 lg:px-8">
                 <div className="grid grid-cols-1 lg:grid-cols-[0.4fr_0.6fr] gap-12 lg:gap-16 items-start">
                     {/* Left column: header + CTA */}
-                    <motion.div 
+                    <motion.div
                         initial={{ opacity: 0, x: -30 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true, margin: "-50px" }}
                         transition={{ duration: 0.6, ease: "easeOut" }}
-                        className="flex flex-col gap-6 sticky top-28"
+                        className="flex flex-col gap-6 lg:sticky lg:top-28"
                     >
                         <span className="inline-flex w-fit items-center gap-2 px-3 py-1.5 rounded-full border border-brand-accent/40 bg-brand-accent/10 text-xs font-semibold text-brand-primary tracking-wider uppercase">
                             <HelpCircle size={14} />
@@ -101,7 +86,7 @@ export function FAQ() {
                     </motion.div>
 
                     {/* Right column: accordion */}
-                    <motion.div 
+                    <motion.div
                         initial={{ opacity: 0, x: 30 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true, margin: "-50px" }}

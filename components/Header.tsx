@@ -39,16 +39,16 @@ export function Header() {
         <>
             <header
                 className={`fixed top-0 w-full z-50 transition-all duration-300
-                ${isScrolled ? "bg-brand-light/60 backdrop-blur-md shadow-[0_4px_20px_rgb(0,0,0,0.05)]" : "bg-brand-light backdrop-blur-md shadow-sm border-b border-stone-100"}
+                bg-brand-primary md:bg-brand-light backdrop-blur-md
+                ${isScrolled ? "md:bg-brand-light/60 shadow-[0_4px_20px_rgb(0,0,0,0.05)]" : "shadow-sm md:border-b md:border-stone-100"}
             `}    >
                 <div className="w-full mx-auto">
                     <div className="flex flex-row items-center justify-between h-auto min-h-18 md:h-20 w-full relative">
 
                         {/* Logo / Nombre */}
                         <div className={`flex items-center gap-4 md:gap-3 py-4 md:py-4 pl-4 pr-10 md:pr-20 
-                                        bg-brand-primary/90 
-                                        [clip-path:polygon(0_0,100%_0,calc(100%-2.25rem)_100%,0_100%)] 
-                                        md:[clip-path:polygon(0_0,100%_0,calc(100%-4rem)_100%,0_100%)] ${isMobileMenuOpen ? "[clip-path:polygon(0_0,100%_0,calc(100%-0rem)_100%,0_100%)]" : "[clip-path:polygon(0_0,100%_0,calc(100%-4rem)_100%,0_100%)]"}`}>
+                                        md:bg-brand-primary/90 
+                                        md:[clip-path:polygon(0_0,100%_0,calc(100%-4rem)_100%,0_100%)]`}>
 
                             <div className="flex w-10 h-10 md:w-12 md:h-12 rounded-full overflow-hidden items-center justify-center ring-2 ring-white shrink-0 bg-white">
                                 <Image src={logo} alt="Logo" className="w-full h-full object-cover" />
@@ -65,7 +65,7 @@ export function Header() {
                         </div>
 
                         {/* Nav Desktop */}
-                        <nav className="hidden md:flex items-center gap-10 lg:gap-16 px-4">
+                        <nav className="hidden md:flex items-center gap-6 lg:gap-10 px-4">
                             {navLinks.map(({ href, label }) => (
                                 <Link
                                     key={href}
@@ -92,7 +92,7 @@ export function Header() {
                         <button
                             onClick={() => setIsMobileMenuOpen((prev) => !prev)}
                             aria-label="Abrir menú"
-                            className="md:hidden p-2 mr-4 rounded-lg text-stone-600 hover:text-brand-primary hover:bg-brand-accent/20 transition-colors duration-200 shrink-0"
+                            className="md:hidden p-2 mr-4 rounded-lg text-white hover:text-brand-light hover:bg-white/20 transition-colors duration-200 shrink-0"
                         >
                             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
                         </button>

@@ -8,7 +8,7 @@ export function CTASection() {
     <section className="py-16 md:py-24 bg-linear-to-br from-brand-primary to-stone-900 border-t border-brand-primary/20 relative overflow-hidden text-white">
       {/* Subtle overlay texture */}
       <div className="absolute inset-0 bg-[url('/noise.png')] opacity-5 mix-blend-overlay pointer-events-none" />
-      
+
       <div className="max-w-3xl mx-auto px-6 lg:px-8 text-center relative z-10">
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 tracking-tight">
           ¿Listo para Cuidar su Salud Digestiva?

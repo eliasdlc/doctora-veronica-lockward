@@ -15,32 +15,32 @@ import Autoplay from "embla-carousel-autoplay";
 
 const testimonials = [
   {
-    text: "Excelente atención. La Doctora Lockward me explicó todo con paciencia y encontré alivio después de años de molestias digestivas.",
+    text: " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sed efficitur metus. Nam augue mauris. ",
     name: "María G.",
     role: "Paciente",
   },
   {
-    text: "Profesional, humana y muy capacitada. Recomiendo sus servicios sin dudar.",
+    text: " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sed efficitur metus. Nam augue mauris. ",
     name: "Carlos R.",
     role: "Paciente",
   },
   {
-    text: "El proceso de colonoscopia fue más tranquilo de lo que esperaba. Todo el equipo muy amable.",
+    text: " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sed efficitur metus. Nam augue mauris. ",
     name: "Ana L.",
     role: "Paciente",
   },
   {
-    text: "Excelente atención. La Doctora Lockward me explicó todo con paciencia y encontré alivio después de años de molestias digestivas.",
+    text: " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sed efficitur metus. Nam augue mauris. ",
     name: "María G.",
     role: "Paciente",
   },
   {
-    text: "Profesional, humana y muy capacitada. Recomiendo sus servicios sin dudar.",
+    text: " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sed efficitur metus. Nam augue mauris. ",
     name: "Carlos R.",
     role: "Paciente",
   },
   {
-    text: "El proceso de colonoscopia fue más tranquilo de lo que esperaba. Todo el equipo muy amable.",
+    text: " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sed efficitur metus. Nam augue mauris. ",
     name: "Ana L.",
     role: "Paciente",
   }
@@ -75,7 +75,7 @@ export function Testimonios() {
 
   return (
     <>
-      <section id="testimonios" className="py-8 md:py-12 bg-stone-50 border-t border-stone-200">
+      <section id="testimonios" className="py-8 md:py-12 bg-stone-50 border-t border-stone-200 overflow-hidden">
         <div className="max-w-6xl mx-auto px-6 lg:px-8">
           <header className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-stone-800">
@@ -89,7 +89,7 @@ export function Testimonios() {
 
 
           <div className="relative p-8 w-full">
-            <div className="flex flex-row w-full gap-4 items-center justify-center overflow-visible">
+            <div className="flex flex-row w-full gap-2 items-center justify-center overflow-visible">
 
               <button className="shrink-0 w-12 h-12 rounded-full border-2 border-transparent 
                bg-brand-primary text-white hover:bg-brand-primary/90 hover:scale-105 active:scale-95 transition-all shadow-md z-10 flex items-center justify-center -mr-2 md:-mr-6"
@@ -99,7 +99,7 @@ export function Testimonios() {
               </button>
 
               <Carousel setApi={setApi} opts={{ loop: true, align: "center" }} plugins={[Autoplay({ delay: 5000 })]} className="w-full">
-                <CarouselContent className="py-6">
+                <CarouselContent className="py-6 overflow-visible">
                   {testimonials.map((t, i) => {
                     const isActive = current === i;
 
@@ -107,7 +107,7 @@ export function Testimonios() {
                       <CarouselItem key={i} className="md:basis-1/3">
                         <article className={`p-8 rounded-2xl border bg-white text-center transition-all duration-500
                                             ${isActive ? "scale-100 opacity-100 shadow-[0_8px_30px_rgb(0,0,0,0.08)] shadow-brand-primary/10 border-brand-primary/20 ring-[4px] ring-brand-primary/5 cursor-default" : "scale-[0.85] opacity-40 shadow-sm border-stone-200 cursor-pointer pointer-events-auto"}`}
-                                            onClick={() => !isActive && api?.scrollTo(i)}>
+                          onClick={() => !isActive && api?.scrollTo(i)}>
                           <Quote className="w-10 h-10 text-stone-300 mx-auto mb-4" aria-hidden />
                           <p className="text-stone-700 italic leading-relaxed mb-6">
                             &ldquo;{t.text}&rdquo;

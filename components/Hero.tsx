@@ -155,8 +155,8 @@ export function Hero() {
                         transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
                     >
                         {/* Decoración de fondo */}
-                        <motion.div 
-                            className="absolute -z-10 w-[90%] h-[90%] rounded-3xl bg-brand-accent/15 translate-x-3 translate-y-3" 
+                        <motion.div
+                            className="absolute -z-10 w-[90%] h-[90%] rounded-3xl bg-brand-accent/15 translate-x-3 translate-y-3"
                             style={{ rotate: bgRotate }}
                         />
 
@@ -185,8 +185,6 @@ export function Hero() {
                                     ))}
                                 </CarouselContent>
 
-                                <CarouselPrevious className="left-2 bg-white/80 backdrop-blur-sm border-brand-accent/30 hover:bg-brand-accent/20" />
-                                <CarouselNext className="right-2 bg-white/80 backdrop-blur-sm border-brand-accent/30 hover:bg-brand-accent/20" />
                             </Carousel>
 
                             {/* Dots indicator */}

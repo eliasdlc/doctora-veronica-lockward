@@ -31,9 +31,9 @@ const services = [
   },
   {
     icon: FileSearch,
-    title: "Enfermedad Hepática Grasa (MASLD)",
+    title: "Enfermedades Hepáticas",
     description:
-      "Evaluación, diagnóstico y estratificación de riesgo de la enfermedad hepática esteatósica asociada a disfunción metabólica (MASLD/MAFLD).",
+      "MASLD (enfermedad hepática esteatósica asociada a disfunción metabólica), hepatitis y detección oportuna de neoplasias hepáticas. Evaluación, diagnóstico y estratificación de riesgo integral.",
   },
   {
     icon: Stethoscope,

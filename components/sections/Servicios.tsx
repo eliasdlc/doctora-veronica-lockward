@@ -27,7 +27,7 @@ const services = [
     icon: Activity,
     title: "Colonoscopia y Cáncer Colorrectal",
     description:
-      "Detección temprana y prevención del cáncer colorrectal mediante colonoscopia. Especial atención en pacientes jóvenes de 15 a 45 años sin antecedentes conocidos.",
+      "Detección temprana y prevención del cáncer colorrectal mediante colonoscopia.",
   },
   {
     icon: FileSearch,

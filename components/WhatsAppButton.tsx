@@ -1,8 +1,7 @@
 "use client";
 
 import Link from "next/link";
-
-const WHATSAPP_NUMBER = "18098447072";
+import { WHATSAPP_NUMBER } from "@/lib/whatsapp";
 
 function WhatsAppIcon() {
   return (

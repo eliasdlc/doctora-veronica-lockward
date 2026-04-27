@@ -53,6 +53,11 @@
 
   /* Marquee animation for infinite scroll */
   --animate-marquee: marquee 30s linear infinite;
+
+  /* Soft shadow tokens — brand-tinted */
+  --shadow-soft: 0 8px 30px rgb(8 62 36 / 0.08);
+  --shadow-soft-lg: 0 20px 50px rgb(8 62 36 / 0.10);
+  --shadow-soft-accent: 0 8px 30px rgb(181 223 77 / 0.20);
 }
 
 @keyframes marquee {
@@ -62,6 +67,25 @@
 
   100% {
     transform: translateX(-50%);
+  }
+}
+
+@keyframes kenburns {
+  from { transform: scale(1) translate(0, 0); }
+  to   { transform: scale(1.08) translate(-2%, -2%); }
+}
+
+/* Marquee pause on hover */
+.marquee-track:hover { animation-play-state: paused; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+  .animate-marquee,
+  [class*="kenburns"] {
+    animation: none !important;
   }
 }
 

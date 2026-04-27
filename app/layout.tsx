@@ -4,6 +4,7 @@ import "@/styles/globals.css";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { Toaster } from "@/components/ui/sonner";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
+import { Analytics } from "@vercel/analytics/next";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -35,6 +36,7 @@ export default function RootLayout({
         </TooltipProvider>
         <WhatsAppButton />
         <Toaster />
+        <Analytics />
       </body>
     </html>
   );

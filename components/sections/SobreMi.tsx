@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { BookOpen, Award, GraduationCap, Star } from "lucide-react";
 import { motion } from "framer-motion";
+import { fadeInUp, slideInLeft, slideInRight, stagger, viewportOnce } from "@/lib/motion";
 
 const credentials = [
   {
@@ -42,12 +43,19 @@ export function SobreMi() {
           {/* Imagen — ~45% */}
           <motion.div
             className="relative"
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+            variants={slideInLeft}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportOnce}
           >
-            <div className="aspect-[3/4] max-w-md mx-auto lg:mx-0 rounded-2xl overflow-hidden border border-stone-200 shadow-[0_8px_30px_rgb(0,0,0,0.08)] relative group">
+            {/* Portrait reveal mask */}
+            <motion.div
+              className="aspect-[3/4] max-w-md mx-auto lg:mx-0 rounded-2xl overflow-hidden border border-stone-200 shadow-soft relative"
+              initial={{ clipPath: "inset(100% 0 0 0)" }}
+              whileInView={{ clipPath: "inset(0% 0 0 0)" }}
+              viewport={viewportOnce}
+              transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
+            >
               <Image
                 src="/images/doctora/sobre-mi.webp"
                 alt="Dra. Verónica Lockward en el podio de la Clínica Unión Médica del Norte"
@@ -55,39 +63,36 @@ export function SobreMi() {
                 sizes="(max-width: 768px) 100vw, 448px"
                 className="object-cover object-top"
               />
-            </div>
+            </motion.div>
           </motion.div>
 
           {/* Texto — ~55% */}
           <motion.div
             className="flex flex-col gap-6"
+            variants={stagger(0.12)}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
-            variants={{
-              hidden: { opacity: 0 },
-              visible: { opacity: 1, transition: { staggerChildren: 0.15, delayChildren: 0.3 } }
-            }}
+            viewport={viewportOnce}
           >
             <motion.span
-              variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5 } } }}
+              variants={fadeInUp}
               className="inline-flex w-fit items-center gap-2 px-4 py-1.5 rounded-full border border-brand-accent bg-brand-accent/10 text-xs font-semibold tracking-wide uppercase text-brand-primary"
             >
               Conozca a la Doctora
             </motion.span>
             <motion.h2
-              variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5 } } }}
+              variants={fadeInUp}
               className="text-3xl md:text-4xl lg:text-5xl font-bold text-stone-800"
             >
               Dra. Verónica Lockward
             </motion.h2>
             <motion.p
-              variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5 } } }}
+              variants={fadeInUp}
               className="text-lg md:text-xl font-semibold text-brand-primary"
             >
               Internista · Gastroenteróloga
             </motion.p>
-            <p className="text-stone-600 leading-relaxed">
+            <motion.p variants={fadeInUp} className="text-stone-600 leading-relaxed">
               Médica internista y gastroenteróloga con más de 30 años de
               experiencia clínica. Egresada de la PUCMM, desarrolló sus
               especialidades en el Hospital Regional Universitario José María
@@ -96,9 +101,9 @@ export function SobreMi() {
               Rico. Cuenta además con un Máster en Gestión y Dirección de
               Centros Hospitalarios de la Universidad de San Antonio, Madrid
               (2016).
-            </p>
+            </motion.p>
             <motion.p
-              variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5 } } }}
+              variants={fadeInUp}
               className="text-stone-600 leading-relaxed text-base md:text-lg"
             >
               Ejerce en la Clínica Universitaria Unión Médica del Norte,
@@ -110,9 +115,9 @@ export function SobreMi() {
             <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
               {credentials.map(({ icon: Icon, title, description }) => (
                 <motion.li
-                  variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5 } } }}
+                  variants={fadeInUp}
                   key={title}
-                  className="flex items-start gap-4 p-5 rounded-xl bg-white border border-stone-100 shadow-sm hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:border-brand-accent/50 transition-all duration-300 group"
+                  className="flex items-start gap-4 p-5 rounded-xl bg-white border border-stone-100 shadow-sm hover:shadow-soft hover:border-brand-accent/50 transition-all duration-300 group"
                 >
                   <span className="w-10 h-10 rounded-full bg-brand-accent/15 flex items-center justify-center shrink-0 group-hover:bg-brand-primary group-hover:text-white transition-colors duration-300 text-brand-primary">
                     <Icon className="w-5 h-5" />

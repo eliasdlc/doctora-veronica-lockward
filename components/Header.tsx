@@ -40,7 +40,7 @@ export function Header() {
             <header
                 className={`fixed top-0 w-full z-50 transition-all duration-300
                 bg-brand-primary md:bg-brand-light backdrop-blur-md
-                ${isScrolled ? "md:bg-brand-light/60 shadow-[0_4px_20px_rgb(0,0,0,0.05)]" : "shadow-sm md:border-b md:border-stone-100"}
+                ${isScrolled ? "md:bg-brand-light/70 md:backdrop-blur-xl md:backdrop-saturate-150 shadow-[0_4px_20px_rgb(0,0,0,0.05)]" : "shadow-sm md:border-b md:border-stone-100"}
             `}    >
                 <div className="w-full mx-auto">
                     <div className="flex flex-row items-center justify-between h-auto min-h-18 md:h-20 w-full relative">
@@ -117,7 +117,7 @@ export function Header() {
                 {/* Panel lateral */}
                 <div
                     className={`
-                        absolute top-0 right-0 h-full w-[75%] max-w-[280px] bg-white shadow-[0_8px_30px_rgb(0,0,0,0.12)]
+                        absolute top-0 right-0 h-full w-[75%] max-w-[280px] bg-white shadow-soft-lg
                         flex flex-col pt-22 px-6 pb-8
                         transition-transform duration-300 ease-in-out
                         ${isMobileMenuOpen ? "translate-x-0" : "translate-x-full"}

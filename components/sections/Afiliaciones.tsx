@@ -3,6 +3,7 @@
 import { Building2 } from "lucide-react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { fadeInUp, stagger, viewportOnce } from "@/lib/motion";
 
 interface Organization {
     name: string;
@@ -23,18 +24,15 @@ export function Afiliaciones() {
         <section id="afiliaciones" className="py-5 md:py-8 bg-white border-t border-stone-200 overflow-hidden">
             <div className="max-w-6xl mx-auto px-6 lg:px-8">
                 <motion.div
+                    variants={stagger(0.08)}
                     initial="hidden"
                     whileInView="visible"
-                    viewport={{ once: true, margin: "-50px" }}
-                    variants={{
-                        hidden: { opacity: 0 },
-                        visible: { opacity: 1, transition: { staggerChildren: 0.1 } }
-                    }}
+                    viewport={viewportOnce}
                     className="flex flex-wrap items-center justify-center gap-4 md:gap-8"
                 >
                     {organizations.map((org) => (
                         <motion.div
-                            variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5 } } }}
+                            variants={fadeInUp}
                             key={org.shortName}
                             className="group flex flex-col items-center gap-2"
                             title={org.name}

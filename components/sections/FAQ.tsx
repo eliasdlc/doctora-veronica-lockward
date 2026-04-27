@@ -3,6 +3,7 @@
 import { HelpCircle, MessageCircle } from "lucide-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { slideInLeft, slideInRight, viewportOnce } from "@/lib/motion";
 import {
     Accordion,
     AccordionContent,
@@ -18,23 +19,31 @@ interface FAQItem {
 const faqs: FAQItem[] = [
     {
         question: "¿Cuándo debo consultar a un gastroenterólogo?",
-        answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam finibus ornare pulvinar. Fusce luctus euismod facilisis. Ut scelerisque, justo eu fringilla fringilla, magna nunc mattis nunc, tempus posuere augue turpis et mi. Praesent congue dolor elit. Suspendisse ornare dapibus vestibulum.",
-    },
-    {
-        question: "¿Cómo me preparo para una endoscopia digestiva?",
-        answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam finibus ornare pulvinar. Fusce luctus euismod facilisis. Ut scelerisque, justo eu fringilla fringilla, magna nunc mattis nunc, tempus posuere augue turpis et mi. Praesent congue dolor elit. Suspendisse ornare dapibus vestibulum.",
-    },
-    {
-        question: "¿Cuánto tiempo dura una consulta gastroenterológica?",
-        answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam finibus ornare pulvinar. Fusce luctus euismod facilisis. Ut scelerisque, justo eu fringilla fringilla, magna nunc mattis nunc, tempus posuere augue turpis et mi. Praesent congue dolor elit. Suspendisse ornare dapibus vestibulum.",
+        answer: "",
     },
     {
         question: "¿Qué enfermedades trata la gastroenterología?",
-        answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam finibus ornare pulvinar. Fusce luctus euismod facilisis. Ut scelerisque, justo eu fringilla fringilla, magna nunc mattis nunc, tempus posuere augue turpis et mi. Praesent congue dolor elit. Suspendisse ornare dapibus vestibulum.",
+        answer: "",
     },
     {
         question: "¿Aceptan seguros médicos?",
-        answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam finibus ornare pulvinar. Fusce luctus euismod facilisis. Ut scelerisque, justo eu fringilla fringilla, magna nunc mattis nunc, tempus posuere augue turpis et mi. Praesent congue dolor elit. Suspendisse ornare dapibus vestibulum.",
+        answer: "",
+    },
+    {
+        question: "¿Qué debo hacer si pierdo mi cita?",
+        answer: "¡No se preocupe! Si no pudo asistir a su cita, comuníquese con nosotros al 809-226-8686 ext. 4316 o escríbanos a veronicalockr@hotmail.com. Estaremos encantados de ayudarle a reprogramar su visita en el momento que mejor le convenga.",
+    },
+    {
+        question: "¿Qué métodos de pago tienen?",
+        answer: "Queremos facilitarle el proceso, por eso aceptamos pagos en efectivo y transferencias bancarias. Si necesita otra opción, por favor contáctenos y buscaremos juntos la alternativa más cómoda para usted.",
+    },
+    {
+        question: "¿Puedo pedir la cita para otra persona?",
+        answer: "Sí, puede agendar una cita a nombre de otra persona. Solo necesitamos que nos proporcione la documentación del paciente y que tenga una relación cercana con él para poder ofrecerle la mejor atención.",
+    },
+    {
+        question: "¿Puedo cancelar o cambiar mi cita?",
+        answer: "Por supuesto, comprendemos que los planes pueden cambiar. Solo tiene que llamarnos al 809-226-8686 ext. 4316 o escribirnos a veronicalockr@hotmail.com y con gusto le ayudaremos a cancelar o reprogramar su cita.",
     },
 ];
 
@@ -48,10 +57,10 @@ export function FAQ() {
                 <div className="grid grid-cols-1 lg:grid-cols-[0.4fr_0.6fr] gap-12 lg:gap-16 items-start">
                     {/* Left column: header + CTA */}
                     <motion.div
-                        initial={{ opacity: 0, x: -30 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true, margin: "-50px" }}
-                        transition={{ duration: 0.6, ease: "easeOut" }}
+                        variants={slideInLeft}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={viewportOnce}
                         className="flex flex-col gap-6 lg:sticky lg:top-28"
                     >
                         <span className="inline-flex w-fit items-center gap-2 px-3 py-1.5 rounded-full border border-brand-accent/40 bg-brand-accent/10 text-xs font-semibold text-brand-primary tracking-wider uppercase">
@@ -87,18 +96,18 @@ export function FAQ() {
 
                     {/* Right column: accordion */}
                     <motion.div
-                        initial={{ opacity: 0, x: 30 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true, margin: "-50px" }}
-                        transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
-                        className="self-center rounded-2xl border border-stone-200 bg-white shadow-[0_8px_30px_rgb(0,0,0,0.08)] p-4 lg:p-6"
+                        variants={slideInRight}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={viewportOnce}
+                        className="self-center rounded-2xl border border-stone-200 bg-white shadow-soft p-4 lg:p-6"
                     >
                         <Accordion type="single" collapsible className="w-full">
                             {faqs.map((faq, index) => (
                                 <AccordionItem
                                     key={index}
                                     value={`faq-${index}`}
-                                    className="border-b border-stone-100 last:border-b-0 px-4"
+                                    className="border-b border-stone-100 last:border-b-0 px-4 data-[state=open]:border-l-2 data-[state=open]:border-l-brand-accent data-[state=open]:pl-3 transition-all"
                                 >
                                     <AccordionTrigger className="text-base font-semibold text-stone-800 hover:text-brand-primary hover:no-underline py-5 cursor-pointer">
                                         {faq.question}

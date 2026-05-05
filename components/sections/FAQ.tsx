@@ -19,15 +19,15 @@ interface FAQItem {
 const faqs: FAQItem[] = [
     {
         question: "¿Cuándo debo consultar a un gastroenterólogo?",
-        answer: "",
+        answer: "Debe consultar si presenta dolor abdominal recurrente, acidez o reflujo, distensión, náuseas o vómitos repetidos, estreñimiento persistente, diarrea frecuente, sangrado rectal, pérdida de peso sin explicación, anemia, fatiga o dificultad para tragar. También es clave una colonoscopia preventiva desde los 45 años (o antes si hay antecedentes familiares). Si hay sangrado abundante, dolor intenso, vómitos persistentes, deshidratación o ictericia marcada, busque atención inmediata.",
     },
     {
         question: "¿Qué enfermedades trata la gastroenterología?",
-        answer: "",
+        answer: "La gastroenterología evalúa y trata enfermedades del aparato digestivo, como reflujo, gastritis, trastornos intestinales (estreñimiento o diarrea crónica), sangrado digestivo, alteraciones del hígado (incluido hígado graso y pruebas hepáticas alteradas), pólipos y prevención del cáncer colorrectal, entre otras condiciones digestivas.",
     },
     {
         question: "¿Aceptan seguros médicos?",
-        answer: "",
+        answer: "Sí, trabajamos con seguros médicos. Como la cobertura depende de su plan, le recomendamos contactarnos antes de la cita para confirmar autorizaciones, copagos y documentación requerida.",
     },
     {
         question: "¿Qué debo hacer si pierdo mi cita?",

@@ -3,6 +3,8 @@ import { Header } from "@/components/Header";
 import { Servicios } from "@/components/sections/Servicios";
 import { SobreMi } from "@/components/sections/SobreMi";
 import { Articulos } from "@/components/sections/Articulos";
+import { Certificaciones } from "@/components/sections/Certificaciones";
+import { Publicaciones } from "@/components/sections/Publicaciones";
 import { FAQ } from "@/components/sections/FAQ";
 import { Testimonios } from "@/components/sections/Testimonios";
 import { CTASection } from "@/components/sections/CTASection";
@@ -20,6 +22,8 @@ export default function Home() {
         <Servicios />
         <SobreMi />
         <Articulos />
+        <Certificaciones />
+        <Publicaciones />
         <FAQ />
         <Testimonios />
         <CTASection />

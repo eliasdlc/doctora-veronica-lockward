@@ -11,6 +11,7 @@ const navLinks = [
     { href: "#inicio", label: "Inicio" },
     { href: "#servicios", label: "Servicios" },
     { href: "#sobre-mi", label: "Sobre Mí" },
+    { href: "#publicaciones", label: "Publicaciones" },
     { href: "#preguntas-frecuentes", label: "Preguntas Frecuentes" },
     { href: "#testimonios", label: "Testimonios" },
     { href: "#contacto", label: "Contacto" },

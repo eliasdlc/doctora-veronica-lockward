@@ -102,7 +102,7 @@ export function Contacto() {
   function fieldClass(key: keyof typeof errors) {
     const hasError = touched[key] && errors[key];
     return [
-      "flex rounded-xl border bg-white px-4 pt-6 pb-2 text-sm transition-all duration-200",
+      "flex rounded-xl border bg-white px-4 py-3 text-sm transition-all duration-200",
       "focus-within:ring-2 focus-within:ring-brand-accent/40 focus-within:border-brand-primary",
       hasError ? "border-red-300 focus-within:ring-red-200 focus-within:border-red-400" : "border-stone-200",
     ].join(" ");
@@ -268,7 +268,7 @@ export function Contacto() {
               <Label htmlFor="preferredTime" className="text-xs font-semibold text-stone-500 uppercase tracking-wide">
                 Horario preferido <span className="text-stone-400">(opcional)</span>
               </Label>
-              <div className="flex rounded-xl border border-stone-200 bg-white px-4 pt-6 pb-2 text-sm transition-all duration-200 focus-within:ring-2 focus-within:ring-brand-accent/40 focus-within:border-brand-primary">
+              <div className="flex rounded-xl border border-stone-200 bg-white px-4 py-3 text-sm transition-all duration-200 focus-within:ring-2 focus-within:ring-brand-accent/40 focus-within:border-brand-primary">
                 <select
                   id="preferredTime"
                   value={form.preferredTime}
@@ -287,7 +287,7 @@ export function Contacto() {
               <Label htmlFor="message" className="text-xs font-semibold text-stone-500 uppercase tracking-wide">
                 Mensaje <span className="text-red-400">*</span>
               </Label>
-              <div className={`${fieldClass("message")} !pt-3`}>
+              <div className={fieldClass("message")}>
                 <textarea
                   id="message"
                   rows={4}

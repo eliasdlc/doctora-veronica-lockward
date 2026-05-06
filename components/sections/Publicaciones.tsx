@@ -37,49 +37,36 @@ const publicaciones: PublicacionItem[] = [
     },
 ];
 
-function FacebookPost({ item }: { item: FacebookEmbed }) {
+function Caption({ item }: { item: PublicacionItem }) {
     return (
-        <div className="relative w-full overflow-hidden rounded-t-2xl" style={{ height: "812px" }}>
-            <iframe
-                src={item.url}
-                width="500"
-                height="812"
-                style={{ border: "none", overflow: "hidden", width: "100%", height: "100%" }}
-                scrolling="no"
-                allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-                allowFullScreen
-                title={item.title}
-            />
-        </div>
-    );
-}
-
-function LocalVideo({ item }: { item: LocalVideo }) {
-    return (
-        <div className="relative w-full" style={{ aspectRatio: "9/16" }}>
-            <video
-                src={item.src}
-                poster={item.poster}
-                controls
-                playsInline
-                autoPlay
-                loop
-                muted
-                preload="auto"
-                aria-label={item.title}
-                title={item.title}
-                className="w-full h-full object-cover rounded-t-2xl"
-            />
+        <div className="p-4 text-center border-t border-stone-100">
+            <div className="flex items-center justify-center gap-1.5 mb-1">
+                {item.type === "facebook" ? (
+                    <Facebook size={12} style={{ color: "#1877F2" }} />
+                ) : (
+                    <Play size={12} className="text-brand-accent fill-brand-accent" />
+                )}
+                <span
+                    className="text-xs font-semibold uppercase tracking-wide"
+                    style={{ color: item.type === "facebook" ? "#1877F2" : undefined }}
+                >
+                    {item.type === "facebook" ? "Facebook" : "Video"}
+                </span>
+            </div>
+            <h3 className="font-bold text-brand-primary text-sm leading-snug">{item.title}</h3>
+            <p className="text-stone-500 text-xs mt-1 leading-relaxed">{item.description}</p>
         </div>
     );
 }
 
 export function Publicaciones() {
+    const video = publicaciones.find((p): p is LocalVideo => p.type === "local");
+    const fbPost = publicaciones.find((p): p is FacebookEmbed => p.type === "facebook");
+
     return (
         <section id="publicaciones" className="py-16 md:py-24 bg-stone-50 border-t border-stone-200">
-            <div className="max-w-6xl mx-auto px-6 lg:px-8">
+            <div className="max-w-5xl mx-auto px-6 lg:px-8">
 
-                {/* Heading */}
                 <motion.div
                     variants={stagger(0.12)}
                     initial="hidden"
@@ -98,50 +85,59 @@ export function Publicaciones() {
                     </motion.p>
                 </motion.div>
 
-                {/* Grid */}
                 <motion.div
                     variants={stagger(0.12)}
                     initial="hidden"
                     whileInView="visible"
                     viewport={viewportOnce}
-                    className={
-                        publicaciones.length === 1
-                            ? "flex justify-center"
-                            : "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center"
-                    }
+                    className="flex flex-col lg:flex-row gap-8 items-center lg:items-stretch justify-center"
                 >
-                    {publicaciones.map((item, i) => (
+                    {/* Video — mismo alto que el FB card en desktop */}
+                    {video && (
                         <motion.div
-                            key={i}
                             variants={fadeInUp}
-                            className="flex flex-col rounded-2xl overflow-hidden shadow-[0_8px_30px_rgb(8_62_36_/_0.08)] bg-white border border-stone-200 w-full max-w-[380px]"
+                            className="flex flex-col rounded-2xl overflow-hidden shadow-[0_8px_30px_rgb(8_62_36_/_0.08)] bg-white border border-stone-200 w-full max-w-[280px] lg:max-w-none lg:w-[394px] shrink-0"
                         >
-                            {item.type === "facebook" ? (
-                                <FacebookPost item={item} />
-                            ) : (
-                                <LocalVideo item={item} />
-                            )}
-
-                            {/* Caption */}
-                            <div className="p-4 text-center">
-                                <div className="flex items-center justify-center gap-1.5 mb-1">
-                                    {item.type === "facebook" ? (
-                                        <Facebook size={12} style={{ color: "#1877F2" }} />
-                                    ) : (
-                                        <Play size={12} className="text-brand-accent fill-brand-accent" />
-                                    )}
-                                    <span
-                                        className="text-xs font-semibold uppercase tracking-wide"
-                                        style={{ color: item.type === "facebook" ? "#1877F2" : undefined }}
-                                    >
-                                        {item.type === "facebook" ? "Facebook" : "Video"}
-                                    </span>
-                                </div>
-                                <h3 className="font-bold text-brand-primary text-sm leading-snug">{item.title}</h3>
-                                <p className="text-stone-500 text-xs mt-1 leading-relaxed">{item.description}</p>
+                            {/* Mobile: aspect 9/16 · Desktop: flex-1 para igualar altura con FB card */}
+                            <div className="relative aspect-[9/16] lg:aspect-auto lg:flex-1 lg:min-h-0">
+                                <video
+                                    src={video.src}
+                                    poster={video.poster}
+                                    controls
+                                    playsInline
+                                    autoPlay
+                                    loop
+                                    muted
+                                    preload="auto"
+                                    aria-label={video.title}
+                                    className="absolute inset-0 w-full h-full object-cover"
+                                />
                             </div>
+                            <Caption item={video} />
                         </motion.div>
-                    ))}
+                    )}
+
+                    {/* Facebook post — ancho exacto del embed, sin gap */}
+                    {fbPost && (
+                        <motion.div
+                            variants={fadeInUp}
+                            className="flex flex-col rounded-2xl overflow-hidden shadow-[0_8px_30px_rgb(8_62_36_/_0.08)] bg-white border border-stone-200 w-full lg:w-fit shrink-0"
+                        >
+                            <div className="overflow-x-auto">
+                                <iframe
+                                    src={fbPost.url}
+                                    width="500"
+                                    height="700"
+                                    style={{ border: "none", display: "block", width: "500px" }}
+                                    scrolling="no"
+                                    allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                                    allowFullScreen
+                                    title={fbPost.title}
+                                />
+                            </div>
+                            <Caption item={fbPost} />
+                        </motion.div>
+                    )}
                 </motion.div>
             </div>
         </section>
